@@ -1,4 +1,5 @@
 // Configuration Supabase
+alert("script.js fonctionne !");
 const SUPABASE_URL = 'https://kilczzeaqcmkeyliumsu.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_bCA3mt7htVdk3r1FaTl3CA_XH0yMsG2';
 
@@ -6,6 +7,7 @@ const supabase = window.supabase.createClient(
   SUPABASE_URL,
   SUPABASE_KEY
 );
+
 
 let currentUser = null;
 let currentRoom = 'general';
