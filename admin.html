@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - FREE FIRE CYBER DATABASE</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="cyber-body">
+    <div class="cyber-grid"></div>
+    
+    <nav class="cyber-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="neon-text">FF</span>
+                <span class="cyber-text">ADMIN PANEL</span>
+            </div>
+            <div class="user-menu">
+                <span id="adminName"></span>
+                <button onclick="logout()" class="cyber-btn cyber-btn-small">Déconnexion</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="admin-container">
+        <div class="admin-stats">
+            <div class="admin-stat-card">
+                <h3>Total Joueurs</h3>
+                <p id="totalPlayers">0</p>
+            </div>
+            <div class="admin-stat-card">
+                <h3>Messages aujourd'hui</h3>
+                <p id="todayMessages">0</p>
+            </div>
+            <div class="admin-stat-card">
+                <h3>Joueurs bannis</h3>
+                <p id="bannedPlayers">0</p>
+            </div>
+            <div class="admin-stat-card">
+                <h3>Total Clans</h3>
+                <p id="totalClans">0</p>
+            </div>
+        </div>
+
+        <div class="admin-tabs">
+            <button class="admin-tab active" data-tab="players">👥 Joueurs</button>
+            <button class="admin-tab" data-tab="messages">💬 Messages</button>
+            <button class="admin-tab" data-tab="clans">🏰 Clans</button>
+            <button class="admin-tab" data-tab="reports">⚠️ Signalements</button>
+        </div>
+
+        <div id="playersTab" class="admin-tab-content active">
+            <div class="admin-search">
+                <input type="text" id="adminPlayerSearch" placeholder="Rechercher un joueur..." class="cyber-input">
+            </div>
+            <div class="admin-table-container">
+                <table class="admin-table">
+                    <thead>
+                        <tr><th>Pseudo</th><th>UID</th><th>Niveau</th><th>Status</th><th>Actions</th></tr>
+                    </thead>
+                    <tbody id="playersTable"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="messagesTab" class="admin-tab-content">
+            <div class="admin-table-container">
+                <table class="admin-table">
+                    <thead><tr><th>Utilisateur</th><th>Message</th><th>Salon</th><th>Date</th><th>Action</th></tr></thead>
+                    <tbody id="messagesTable"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="clansTab" class="admin-tab-content">
+            <div class="admin-table-container">
+                <table class="admin-table">
+                    <thead><tr><th>Nom</th><th>Chef</th><th>Membres</th><th>Date création</th><th>Action</th></tr></thead>
+                    <tbody id="clansTable"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="reportsTab" class="admin-tab-content">
+            <div class="admin-table-container">
+                <table class="admin-table">
+                    <thead><tr><th>Signalé par</th><th>Signalé</th><th>Raison</th><th>Date</th><th>Actions</th></tr></thead>
+                    <tbody id="reportsTable"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clans - FREE FIRE CYBER DATABASE</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body class="cyber-body">
+    <div class="cyber-grid"></div>
+    
+    <nav class="cyber-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="neon-text">FF</span>
+                <span class="cyber-text">CYBER DATABASE</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Accueil</a>
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <a href="clans.html" class="nav-link active">Clans</a>
+                <a href="chat.html" class="nav-link">Chat</a>
+            </div>
+            <div class="user-menu">
+                <span id="userName"></span>
+                <button onclick="logout()" class="cyber-btn cyber-btn-small">Déconnexion</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="clans-header">
+            <h1>🏰 Clans Free Fire</h1>
+            <button onclick="showCreateClanModal()" class="cyber-btn">+ Créer un Clan</button>
+        </div>
+
+        <div class="clans-search">
+            <input type="text" id="clanSearch" placeholder="Rechercher un clan..." class="cyber-input">
+        </div>
+
+        <div class="clans-grid" id="clansList"></div>
+    </div>
+
+    <!-- Create Clan Modal -->
+    <div id="createClanModal" class="modal">
+        <div class="modal-content cyber-modal">
+            <span class="close" onclick="closeModal('createClanModal')">&times;</span>
+            <h2>Créer un Clan</h2>
+            <form id="createClanForm">
+                <input type="text" placeholder="Nom du clan" class="cyber-input" required>
+                <textarea placeholder="Description du clan" class="cyber-input" rows="3"></textarea>
+                <input type="url" placeholder="URL du logo" class="cyber-input">
+                <button type="submit" class="cyber-btn cyber-btn-primary">Créer le clan</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FREE FIRE CYBER DATABASE - Plateforme Communautaire</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="cyber-body">
+    <div class="cyber-grid"></div>
+    
+    <!-- Navigation -->
+    <nav class="cyber-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="neon-text">FF</span>
+                <span class="cyber-text">CYBER DATABASE</span>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html" class="nav-link active">Accueil</a>
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <a href="clans.html" class="nav-link">Clans</a>
+                <a href="chat.html" class="nav-link">Chat</a>
+            </div>
+            <div id="authButtons" class="auth-buttons">
+                <button class="cyber-btn cyber-btn-small" onclick="showLoginModal()">Connexion</button>
+                <button class="cyber-btn cyber-btn-small cyber-btn-primary" onclick="showRegisterModal()">Inscription</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="glitch" data-text="FREE FIRE CYBER DATABASE">FREE FIRE CYBER DATABASE</h1>
+            <p class="hero-subtitle">La plateforme ultime pour les joueurs Free Fire</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number" id="totalPlayers">0</span>
+                    <span class="stat-label">Joueurs</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" id="totalClans">0</span>
+                    <span class="stat-label">Clans</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" id="totalUHD">0</span>
+                    <span class="stat-label">UHD</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="container">
+            <h2 class="section-title">Rechercher un joueur</h2>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Pseudo ou UID..." class="cyber-input">
+                <button onclick="searchPlayer()" class="cyber-btn">Rechercher</button>
+            </div>
+            <div id="searchResults" class="search-results"></div>
+        </div>
+    </section>
+
+    <!-- Rankings Section -->
+    <section class="rankings-section">
+        <div class="container">
+            <h2 class="section-title">Classements</h2>
+            <div class="rankings-grid">
+                <div class="ranking-card">
+                    <h3>🏆 Joueurs les plus actifs</h3>
+                    <div id="activePlayersRanking"></div>
+                </div>
+                <div class="ranking-card">
+                    <h3>🔥 UHD les plus populaires</h3>
+                    <div id="popularUHD"></div>
+                </div>
+                <div class="ranking-card">
+                    <h3>⚔️ Clans les plus populaires</h3>
+                    <div id="popularClans"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modals -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content cyber-modal">
+            <span class="close" onclick="closeModal('loginModal')">&times;</span>
+            <h2>Connexion</h2>
+            <form id="loginForm">
+                <input type="email" placeholder="Email" class="cyber-input" required>
+                <input type="password" placeholder="Mot de passe" class="cyber-input" required>
+                <button type="submit" class="cyber-btn cyber-btn-primary">Se connecter</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="registerModal" class="modal">
+        <div class="modal-content cyber-modal">
+            <span class="close" onclick="closeModal('registerModal')">&times;</span>
+            <h2>Inscription</h2>
+            <form id="registerForm">
+                <input type="text" placeholder="Pseudo" class="cyber-input" required>
+                <input type="email" placeholder="Email" class="cyber-input" required>
+                <input type="password" placeholder="Mot de passe" class="cyber-input" required>
+                <input type="text" placeholder="UID Free Fire" class="cyber-input" required>
+                <select class="cyber-input" required>
+                    <option value="">Sélectionnez votre rang</option>
+                    <option>Bronze</option>
+                    <option>Silver</option>
+                    <option>Gold</option>
+                    <option>Platinum</option>
+                    <option>Diamond</option>
+                    <option>Heroic</option>
+                    <option>Grand Master</option>
+                </select>
+                <select class="cyber-input" required>
+                    <option value="">Région</option>
+                    <option>Europe</option>
+                    <option>Asie</option>
+                    <option>Amérique du Nord</option>
+                    <option>Amérique du Sud</option>
+                    <option>Afrique</option>
+                </select>
+                <button type="submit" class="cyber-btn cyber-btn-primary">S'inscrire</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

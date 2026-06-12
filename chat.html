@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Mondial - FREE FIRE CYBER DATABASE</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emoji-picker-element@1"></script>
+</head>
+<body class="cyber-body">
+    <div class="cyber-grid"></div>
+    
+    <nav class="cyber-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="neon-text">FF</span>
+                <span class="cyber-text">CYBER DATABASE</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Accueil</a>
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <a href="clans.html" class="nav-link">Clans</a>
+                <a href="chat.html" class="nav-link active">Chat</a>
+            </div>
+            <div class="user-menu">
+                <span id="userName"></span>
+                <button onclick="logout()" class="cyber-btn cyber-btn-small">Déconnexion</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="chat-container">
+        <div class="chat-sidebar">
+            <h3>Salons</h3>
+            <div class="chat-rooms">
+                <button class="chat-room active" data-room="general">💬 Général</button>
+                <button class="chat-room" data-room="uhd">📸 UHD</button>
+                <button class="chat-room" data-room="recruitment">🎯 Recrutement</button>
+                <button class="chat-room" data-room="clans">⚔️ Clans</button>
+            </div>
+            <div class="online-users">
+                <h3>👥 En ligne</h3>
+                <div id="onlineUsers"></div>
+            </div>
+        </div>
+
+        <div class="chat-main">
+            <div class="chat-messages" id="chatMessages"></div>
+            <div class="chat-input-area">
+                <div class="chat-tools">
+                    <button onclick="toggleEmojiPicker()" class="chat-tool">😊</button>
+                    <button onclick="uploadChatImage()" class="chat-tool">📷</button>
+                    <button onclick="recordAudio()" class="chat-tool">🎙️</button>
+                    <button onclick="uploadFile()" class="chat-tool">📎</button>
+                </div>
+                <div class="chat-input-wrapper">
+                    <input type="text" id="chatInput" placeholder="Tapez votre message..." class="cyber-input">
+                    <button onclick="sendMessage()" class="cyber-btn">Envoyer</button>
+                </div>
+                <div id="emojiPicker" class="emoji-picker" style="display: none;"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

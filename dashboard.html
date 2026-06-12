@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - FREE FIRE CYBER DATABASE</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body class="cyber-body">
+    <div class="cyber-grid"></div>
+    
+    <nav class="cyber-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="neon-text">FF</span>
+                <span class="cyber-text">CYBER DATABASE</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Accueil</a>
+                <a href="dashboard.html" class="nav-link active">Dashboard</a>
+                <a href="clans.html" class="nav-link">Clans</a>
+                <a href="chat.html" class="nav-link">Chat</a>
+            </div>
+            <div class="user-menu">
+                <span id="userName"></span>
+                <button onclick="logout()" class="cyber-btn cyber-btn-small">Déconnexion</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container dashboard-container">
+        <div class="profile-header">
+            <div class="profile-avatar">
+                <img id="profileAvatar" src="https://via.placeholder.com/150" alt="Avatar">
+                <button onclick="uploadAvatar()" class="cyber-btn-small">Changer photo</button>
+            </div>
+            <div class="profile-info">
+                <h1 id="profileNickname"></h1>
+                <p>UID: <span id="profileUID"></span></p>
+                <p>Membre depuis: <span id="joinDate"></span></p>
+                <div class="access-code-container">
+                    <p>Code d'accès: <code id="accessCode"></code></p>
+                    <button onclick="copyAccessCode()" class="cyber-btn-small">Copier</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-stats">
+            <div class="stat-card">
+                <h3>Niveau</h3>
+                <div class="level-display">
+                    <span id="playerLevel">0</span>
+                    <input type="range" id="levelSlider" min="1" max="100" value="1">
+                </div>
+            </div>
+            <div class="stat-card">
+                <h3>Rang</h3>
+                <select id="playerRank" class="cyber-input">
+                    <option>Bronze</option>
+                    <option>Silver</option>
+                    <option>Gold</option>
+                    <option>Platinum</option>
+                    <option>Diamond</option>
+                    <option>Heroic</option>
+                    <option>Grand Master</option>
+                </select>
+            </div>
+            <div class="stat-card">
+                <h3>Région</h3>
+                <select id="playerRegion" class="cyber-input">
+                    <option>Europe</option>
+                    <option>Asie</option>
+                    <option>Amérique du Nord</option>
+                    <option>Amérique du Sud</option>
+                    <option>Afrique</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="profile-bio">
+            <h3>Description</h3>
+            <textarea id="playerBio" rows="4" class="cyber-input" placeholder="Décrivez-vous..."></textarea>
+        </div>
+
+        <div class="action-buttons">
+            <button onclick="updateProfile()" class="cyber-btn">Mettre à jour</button>
+            <button onclick="deactivateProfile()" class="cyber-btn cyber-btn-danger">Désactiver mon profil</button>
+        </div>
+
+        <div class="uhd-section">
+            <h2>Mes UHD (Ultra HD)</h2>
+            <div class="uhd-grid" id="myUHD"></div>
+            <button onclick="uploadUHD()" class="cyber-btn">Publier un UHD</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
